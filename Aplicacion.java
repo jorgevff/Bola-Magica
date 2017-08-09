@@ -6,6 +6,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import java.util.Random;
+import java.util.ArrayList;
 /**
 
  */
@@ -46,11 +48,14 @@ public class Aplicacion extends Application
 
         //cofigurando evento de raton
         escena.setOnMouseClicked((MouseEvent evento) -> {
+            //obtenemos posicion del raton
                 double posicionXRaton = evento.getX();
                 double posicionYRaton = evento.getY();
-                mensaje.setText("Te va a tocar el gordo");
+            //fijamos la posicion del mensaje a la posicion del raton que obtuvimos antes
                 mensaje.setLayoutX(posicionXRaton);
-                mensaje.setLayoutY(posicionYRaton);   
+                mensaje.setLayoutY(posicionYRaton);
+            //invocamos el metodo que modificara el mensaje
+                modificarMensaje();
 
             });
         //inicializando elementos multimedia
@@ -68,6 +73,30 @@ public class Aplicacion extends Application
         
         
         primaryStage.show();
+    }
+    
+    private void modificarMensaje(){
+        ArrayList<String> frases = new ArrayList<>();
+        
+        String mensaje1 = "Te va a tocar el gordo";
+        String mensaje2 = "Te vas a encontrar dinero";
+        String mensaje3 = "Nanai";
+        String mensaje4 = "Te va a pillar un bus";
+        
+        frases.add(mensaje1);
+        frases.add(mensaje2);
+        frases.add(mensaje3);
+        frases.add(mensaje4);
+        
+        Random aleatorio = new Random();
+        //Obtenemos un numero aleatorio entre 0 y el numero indicado
+        //en este caso la cantidad de elementos dentro de la coleccion
+        int numeroAleatorio = aleatorio.nextInt(frases.size());
+        
+        //Obtenemos un elemento de la coleccion mediante el numero aleatorio
+        String mensajeFijado = frases.get(numeroAleatorio);
+        
+        mensaje.setText(mensajeFijado); 
     }
 
 }
