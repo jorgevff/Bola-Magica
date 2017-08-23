@@ -14,7 +14,8 @@ import java.util.ArrayList;
 public class Aplicacion extends Application
 {
     // instance variables - replace the example below with your own
-    private static final float LADO_VENTANA = 800;
+    private static final float LADO_ANCHO = 800;
+    private static final float LADO_ALTO = 600;
     private static final ImageView CONTENEDOR_FONDO = new ImageView();
     private Image icono;
 
@@ -32,7 +33,7 @@ public class Aplicacion extends Application
     public void start(Stage primaryStage){
         //inicializando la escena y el escenario y pasandoselo a la aplicacion
         Pane escenario = new Pane();
-        Scene escena = new Scene(escenario, LADO_VENTANA, LADO_VENTANA);
+        Scene escena = new Scene(escenario, LADO_ANCHO, LADO_ALTO);
         primaryStage.setScene(escena);
         escenario.getChildren().add(CONTENEDOR_FONDO);
 
@@ -42,8 +43,8 @@ public class Aplicacion extends Application
 
         //configurando mensaje
         mensaje = new Label("Haz click para mostrar tu fortuna");
-        mensaje.setLayoutX(LADO_VENTANA/2);
-        mensaje.setLayoutY(LADO_VENTANA/2);
+        mensaje.setLayoutX(LADO_ANCHO/2);
+        mensaje.setLayoutY(LADO_ALTO/2);
         escenario.getChildren().add(mensaje);
 
         //cofigurando evento de raton
@@ -89,7 +90,7 @@ public class Aplicacion extends Application
         frases.add(mensaje4);
         
         Random aleatorio = new Random();
-        //Obtenemos un numero aleatorio entre 0 y el numero indicado
+        //Obtenemos un numero aleatorio entre 0 y el numero* indicado
         //en este caso la cantidad de elementos dentro de la coleccion
         int numeroAleatorio = aleatorio.nextInt(frases.size());
         
