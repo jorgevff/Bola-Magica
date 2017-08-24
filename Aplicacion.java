@@ -19,9 +19,9 @@ public class Aplicacion extends Application
     private static final ImageView CONTENEDOR_FONDO = new ImageView();
     private Image icono;
 
-    private static final String RUTA_ICONO = "icono.png";
+    private static final String RUTA_ICONO = "icono1.png";
     private static final String TITULO_VENTANA = "Mi Bola";
-    private static final String RUTA_FONDO = "fondo.png";
+    private static final String RUTA_FONDO = "bola.png";
 
     private Label mensaje;
 
